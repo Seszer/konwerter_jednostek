@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>konwerter jednostek</title>
+	<link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="skrypt.js"></script>
+	<style>
+	* {
+margin: 0;
+padding: 0;
+}
+body{
+color:white;
+background-color: black;
+}
+h1{
+text-align: center;
+margin-top: 30px;
+margin-bottom:30px;
+}
+h2{
+color:white;
+background-color: brown;
+margin-top: 5px;
+margin-bottom:15px;
+}
+.odleglosc{
+color:white;
+background-color: black;
+}
+.waga{
+color:white;
+background-color: black;
+}
+div{
+text-align: center;
+}
+	</style>
+</head>
+<body>
+<script type="text/javascript">
+function obl(jed) {
+let mia = jed.className;
+let mno = parseInt(jed.getAttribute("base"));
+let pocz = jed.value;
+let rodzaj = document.getElementsByClassName(mia);
+for(let w=0; w<rodzaj.length; w++){
+let dzielnik = rodzaj[w].getAttribute("base");
+rodzaj[w].value = pocz*mno/dzielnik;
+}
+}
+</script>
+<h1>KONWERTER JEDNOSTEK</h1>
+<div>
+<h2>WAGA</h2>
+MILIGRAM<input class="waga" id="1" onkeyup="obl(this)" base="1">
+<br>
+GRAM  <input class="waga" id="2"  onkeyup="obl(this)" base="1000">
+<br>
+DEKAGRAM<input class="waga" id="3"  onkeyup="obl(this)" base="10000">
+<br>
+KILOGRAM<input class="waga" id="4"  onkeyup="obl(this)" base="1000000">
+<br>
+TONA  <input class="waga" id="5"  onkeyup="obl(this)" base="1000000000">
+</div>
+<div>
+<h2>DŁUGOŚCI</h2>
+MILIMETR <input class="odleglosc" onkeyup="obl(this)" id="6" base="1">
+<br>
+CENTYMETR<input class="odleglosc" onkeyup="obl(this)" id="7" base="10">
+<br>
+DECYMETR <input class="odleglosc" onkeyup="obl(this)" id="8" base="100">
+<br>
+METR <input class="odleglosc" onkeyup="obl(this)" id="9" base="1000">
+<br>
+KILOMETR <input class="odleglosc" onkeyup="obl(this)" id="10" base="1000000">
+</div>
+</body>
+</html>
